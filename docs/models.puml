@@ -1,0 +1,22 @@
+@startuml
+
+!includeurl https://raw.githubusercontent.com/manuvai/plantuml-utils/master/class_diagram_utils.puml
+
+class Task {
+    -string(label)
+    -boolean(isDone)
+    -date(creationDate)
+    +boolean("isDone()")
+
+}
+
+class List {
+    -string(label)
+    -date(creationDate)
+}
+
+Task -u-o List : list(Task, tasks)
+
+Task o-- Task : list(Task, subTasks)
+
+@enduml
