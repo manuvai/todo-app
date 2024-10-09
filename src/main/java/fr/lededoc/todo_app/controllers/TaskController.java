@@ -44,11 +44,18 @@ public class TaskController implements TaskApi {
 
     @Override
     public ResponseEntity<TaskDto> updateTask(Integer id, TaskDto taskDto) {
-        return null;
+
+        // TODO Vérifier id
+        TaskDto updatedDto = taskService.update(taskDto);
+
+        return ResponseEntity.ok(updatedDto);
     }
 
     @Override
     public ResponseEntity<Void> deleteTask(Integer id) {
-        return null;
+
+        taskService.delete(id);
+
+        return ResponseEntity.ok(null);
     }
 }

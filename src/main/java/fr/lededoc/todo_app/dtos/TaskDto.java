@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class TaskDto implements Serializable {
-    private Integer key;
+    private Integer id;
     private String label;
     private Boolean isDone;
     private Date creationDate;
@@ -33,11 +33,11 @@ public class TaskDto implements Serializable {
         return label;
     }
 
-    public void setKey(Integer key) {
-        this.key = key;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getKey() {
-        return key;
+    public Integer getId() {
+        return id;
     }
 }

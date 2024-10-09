@@ -13,8 +13,6 @@ public interface TaskMapper {
 
     TaskMapper INSTANCE = Mappers.getMapper(TaskMapper.class);
 
-    @Mapping(source = "id", target = "key")
-    @Mapping(source = "label", target = "label")
     TaskDto entityToDto(Task entity);
 
     @InheritInverseConfiguration
