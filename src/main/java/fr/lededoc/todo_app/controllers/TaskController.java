@@ -8,16 +8,15 @@ import fr.lededoc.todo_app.services.TaskService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
 public class TaskController implements TaskApi {
 
-    private final TaskRepository taskRepository;
     private final TaskService taskService;
 
-    public TaskController(TaskRepository taskRepository, TaskService taskService) {
-        this.taskRepository = taskRepository;
+    public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
 
@@ -38,7 +37,9 @@ public class TaskController implements TaskApi {
 
     @Override
     public ResponseEntity<Void> createTask(TaskDto taskDto) {
-        return null;
+        TaskDto newTask = taskService.create(taskDto);
+
+        return ResponseEntity.ok(null);
     }
 
     @Override

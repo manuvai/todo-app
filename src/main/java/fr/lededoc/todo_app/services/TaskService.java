@@ -31,6 +31,13 @@ public class TaskService {
                 .toList();
     }
 
+    public TaskDto create(TaskDto dto) {
+        Task task = TaskMapper.INSTANCE.dtoToEntity(dto);
+        Task newTask = taskRepository.save(task);
+
+        return TaskMapper.INSTANCE.entityToDto(newTask);
+    }
+
     public TaskDto fetchById(Integer id) {
         return id == null
                 ? null
