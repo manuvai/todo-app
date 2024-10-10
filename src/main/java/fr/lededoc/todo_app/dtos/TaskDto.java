@@ -1,13 +1,17 @@
 package fr.lededoc.todo_app.dtos;
 
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class TaskDto implements Serializable {
     private Integer id;
     private String label;
     private Boolean isDone;
     private Date creationDate;
+    private List<TaskDto> subTasks;
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
@@ -39,5 +43,13 @@ public class TaskDto implements Serializable {
 
     public Integer getId() {
         return id;
+    }
+
+    public void setSubTasks(List<TaskDto> subTasks) {
+        this.subTasks = subTasks;
+    }
+
+    public List<TaskDto> getSubTasks() {
+        return subTasks;
     }
 }
