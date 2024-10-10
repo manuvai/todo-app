@@ -14,9 +14,13 @@ public class OpenAPIConfiguration {
 
     @Bean
     public OpenAPI defineOpenApi() {
-        Server server = new Server();
-        server.setUrl("http://localhost:8080");
-        server.setDescription("Development");
+        Server localhostServer = new Server();
+        localhostServer.setUrl("http://localhost:8080");
+        localhostServer.setDescription("Development");
+
+        Server renderServer = new Server();
+        renderServer.setUrl("https://todo-app-qh6w.onrender.com/");
+        renderServer.setDescription("Render");
 
         Contact myContact = new Contact();
         myContact.setName("Manuvai REHUA");
@@ -29,6 +33,6 @@ public class OpenAPIConfiguration {
                 .contact(myContact);
         return new OpenAPI()
                 .info(information)
-                .servers(List.of(server));
+                .servers(List.of(localhostServer, renderServer));
     }
 }
