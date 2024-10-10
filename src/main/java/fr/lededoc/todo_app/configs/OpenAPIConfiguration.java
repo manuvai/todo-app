@@ -33,6 +33,6 @@ public class OpenAPIConfiguration {
                 .contact(myContact);
         return new OpenAPI()
                 .info(information)
-                .servers(List.of(localhostServer, renderServer));
+                .servers(List.of(renderServer, localhostServer));
     }
 }
